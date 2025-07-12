@@ -1,0 +1,331 @@
+/* Reset básico e variáveis CSS para cores */
+:root {
+    /* Cores do Modo Claro */
+    --bg-color-light: #f0f4f8;
+    --text-color-light: #222;
+    --header-bg-start-light: #0077cc;
+    --header-bg-end-light: #005fa3;
+    --header-shadow-light: rgba(0,0,0,0.15);
+    --h1-color-light: #ffffff;
+    --h2-color-light: #004a80;
+    --section-bg-light: #ffffff;
+    --section-shadow-light: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --input-border-light: #ccc;
+    --input-focus-border-light: #0077cc;
+    --button-bg-light: #005a9e; /* Cor principal dos botões */
+     --button-hover-bg-light-blue: #d0e5fb; /*hover claro*/ 
+    --button-hover-bg-light: #004a80; /* hover dos botões escuro */
+    --button-text-light: white;
+    --error-message-color-light: #e74c3c;
+    --footer-color-light: #ecf0f1;
+    --footer-border-light: rgba(255, 255, 255, 0.2);
+
+    /* Cores do Modo Escuro */
+    --bg-color-dark: #121212;
+    --text-color-dark: #eee;
+    --header-bg-start-dark: #222;
+    --header-bg-end-dark: #111;
+    --header-shadow-dark: none;
+    --h1-color-dark: #eee;
+    --h2-color-dark: #aad4ff;
+    --section-bg-dark: #1e1e1e;
+    --section-shadow-dark: 0 4px 12px rgba(0, 0, 0, 0.4);
+    --input-border-dark: #555;
+    --input-focus-border-dark: #3399ff;
+    --button-bg-dark: #3399ff;
+    --button-hover-bg-dark: #2277cc;
+    --button-text-dark: white;
+    --error-message-color-dark: #ff8a80;
+    --footer-color-dark: #aaa;
+    --footer-border-dark: #333;
+}
+
+/* Base */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color-light);
+    color: var(--text-color-light);
+    padding: 0 15px;
+    transition: background-color 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url('2.png'); /* Certifique-se de que o caminho da imagem está correto */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+body.dark-mode {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('2.png');
+}
+
+/* Header */
+header {
+    background-color: rgba(52, 73, 94, 0.3);
+    color: var(--h1-color-light);
+    padding: 15px 0;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--header-shadow-light);
+    margin-bottom: 25px;
+    border-radius: 0 0 10px 10px;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode header {
+    color: var(--h1-color-dark);
+    border-color: var(--footer-border-dark);
+}
+
+header h1 {
+    font-size: 2.2em;
+    margin: 0 0 5px 0;
+    color: var(--h1-color-light);
+}
+
+body.dark-mode header h1 {
+    color: var(--h1-color-dark);
+}
+
+header p {
+    font-size: 1.1em;
+    margin: 0;
+    opacity: 0.9;
+}
+
+.header-controls {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* Botão de Modo Escuro no Header */
+.header-controls .button {
+    background: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 18px;
+    font-size: 15px;
+    color: var(--button-bg-light); /* Usando a cor principal para o texto do botão */
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0, 119, 204, 0.3);
+    transition: background-color 0.25s, color 0.25s, transform 0.2s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.header-controls .button:hover {
+    background-color: var(--button-hover-bg-light-blue);
+    transform: translateY(-1px);
+}
+
+body.dark-mode .header-controls .button {
+    background: #333;
+    color: var(--button-bg-dark); /* Usando a cor principal para o texto do botão no modo escuro */
+    box-shadow: none;
+}
+
+body.dark-mode .header-controls .button:hover {
+    background-color: var(--button-hover-bg-dark);
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.login-section {
+    background-color: var(--section-bg-light);
+    border-radius: 12px;
+    box-shadow: var(--section-shadow-light);
+    padding: 30px;
+    width: 100%;
+    max-width: 400px; /* Largura máxima para o formulário de login */
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark-mode .login-section {
+    background-color: var(--section-bg-dark);
+    box-shadow: var(--section-shadow-dark);
+}
+
+.login-section h2 {
+    color: var(--h2-color-light);
+    font-size: 2em;
+    margin-bottom: 25px;
+}
+
+body.dark-mode .login-section h2 {
+    color: var(--h2-color-dark);
+}
+
+.input-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-color-light);
+}
+
+body.dark-mode .input-group label {
+    color: var(--text-color-dark);
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-light);
+    border-radius: 6px;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    background-color: var(--section-bg-light); /* Para combinar com o card */
+    color: var(--text-color-light);
+}
+
+body.dark-mode .input-group input[type="text"],
+body.dark-mode .input-group input[type="password"] {
+    background-color: #2a2a2a; /* Um pouco mais escuro que o background da seção */
+    border-color: var(--input-border-dark);
+    color: var(--text-color-dark);
+}
+
+.input-group input[type="text"]:focus,
+.input-group input[type="password"]:focus {
+    outline: none;
+    border-color: var(--input-focus-border-light);
+    box-shadow: 0 0 0 3px rgba(0, 119, 204, 0.2);
+}
+
+body.dark-mode .input-group input[type="text"]:focus,
+body.dark-mode .input-group input[type="password"]:focus {
+    border-color: var(--input-focus-border-dark);
+    box-shadow: 0 0 0 3px rgba(51, 153, 255, 0.3);
+}
+
+.primary-button {
+    background-color: var(--button-bg-light);
+    color: var(--button-text-light);
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s, box-shadow 0.3s;
+    width: 100%;
+    margin-top: 10px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.primary-button:hover {
+    background-color: var(--button-hover-bg-light);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+}
+
+body.dark-mode .primary-button {
+    background-color: var(--button-bg-dark);
+    color: var(--button-text-dark);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .primary-button:hover {
+    background-color: var(--button-hover-bg-dark);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.error-message {
+    color: var(--error-message-color-light);
+    margin-top: 15px;
+    font-weight: 500;
+    font-size: 0.95em;
+    min-height: 20px; /* Garante que o espaço seja reservado */
+}
+
+body.dark-mode .error-message {
+    color: var(--error-message-color-dark);
+}
+
+/* Footer */
+footer {
+    background-color: rgba(52, 73, 94, 0.3);
+    color: var(--footer-color-light);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto;
+    font-size: 0.9em;
+    border-top: 1px solid var(--footer-border-light);
+}
+body.dark-mode footer {
+    color: var(--footer-color-dark);
+    border-color: var(--footer-border-dark);
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8em;
+    }
+    header p {
+        font-size: 0.9em;
+    }
+    .header-controls .button {
+        width: 100%;
+        padding: 8px 14px;
+        font-size: 14px;
+    }
+    .login-section {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    .login-section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .input-group label {
+        font-size: 0.9em;
+    }
+    .input-group input {
+        padding: 10px;
+        font-size: 0.95em;
+    }
+    .primary-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+    .error-message {
+        font-size: 0.85em;
+    }
+    footer {
+        padding: 12px 0;
+        font-size: 0.8em;
+    }
+}
